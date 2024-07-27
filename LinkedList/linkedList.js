@@ -28,6 +28,22 @@ class LinkedList {
         console.log(dummy.val);
     }
 
+    static printLinkedList(head) {
+        let dummy = head;
+
+        if (!dummy) {
+            console.log('null');
+            return;
+        }
+    
+        while (dummy.next) {
+            process.stdout.write(`${dummy.val} -> `);
+            dummy = dummy.next;
+        }
+        
+        console.log(dummy.val);
+    }
+
     getHead() {
         return this.head;
     }
