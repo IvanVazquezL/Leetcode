@@ -44,6 +44,21 @@ class LinkedList {
         console.log(dummy.val);
     }
 
+    static createLinkedListByArray(array) {
+        if (array.length === 0) return null;
+
+        const linkedList = new LinkedList(array[0]);
+
+        for (let i = 1; i < array.length; i++) {
+            linkedList.addNode(array[i]);
+        }
+
+        linkedList.printLinkedList();
+
+        return linkedList;
+
+    }
+
     getHead() {
         return this.head;
     }

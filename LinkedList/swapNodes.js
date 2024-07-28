@@ -60,15 +60,6 @@ function main() {
 
     linkedList2.printLinkedList();
     LinkedList.printLinkedList(swapNodes(linkedList2.getHead(), 5));
-
-
-
-
-
-
-
-
-
 }
 
 main();
