@@ -8,22 +8,22 @@
  */
 /**
  * @param {TreeNode} root
- * @return {number[]}
+ * @return {boolean}
  */
-var averageOfLevels = function(root) {
+var isEvenOddTree = function(root) {
     if (!root) return [];
 
-    const answer = [];
     const queue = [root];
+    let isEven = true;
 
     while (queue.length) {
         const levelSize = queue.length;
-        let currentSum = 0;
+        const level = [];
 
         for (let i = 0; i < levelSize; i++) {
             const currentNode = queue.shift();
 
-            currentSum += currentNode.val;
+            level.push(currentNode.val);
 
             if (currentNode.left) {
                 queue.push(currentNode.left);
@@ -34,8 +34,28 @@ var averageOfLevels = function(root) {
             }
         }
 
-        answer.push(currentSum/levelSize);
+        for (let i = 0; i < levelSize; i++) {
+            const result =  isEven ?
+                level[i] % 2 !== 0 :
+                level[i] % 2 === 0;
+
+            if (!result) {
+                return false;
+            }
+        }
+
+        for (let i = 1; i < levelSize; i++) {
+            const result = isEven ? 
+                level[i] > level[i - 1] : 
+                level[i] < level[i - 1];
+
+            if (!result) {
+                return false; 
+            }
+        }
+
+        isEven = !isEven;
     }
 
-    return answer;
+    return true;
 };
