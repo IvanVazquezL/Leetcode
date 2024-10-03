@@ -66,8 +66,10 @@ ring.insertNode(new Node('Node A'));
 ring.insertNode(new Node('Node B'));
 ring.insertNode(new Node('Node C'));
 
+console.log(ring.nodes)
+
 // Test key assignment
-ring.findNodeForKey('myKey1');
+ring.findNodeForKey('myKey10000000000000000');
 ring.findNodeForKey('myKey2');
 ring.findNodeForKey('myKey3');
 
@@ -75,6 +77,6 @@ ring.findNodeForKey('myKey3');
 ring.removeNode('Node B');
 
 // Test key assignment after removal
-ring.findNodeForKey('myKey1');
+ring.findNodeForKey('myKey10000000000000000');
 ring.findNodeForKey('myKey2');
 ring.findNodeForKey('myKey3');
