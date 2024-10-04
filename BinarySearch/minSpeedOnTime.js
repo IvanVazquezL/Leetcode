@@ -13,7 +13,7 @@ var minSpeedOnTime = function(dist, hour) {
 
     while (left <= right) {
         const mid = Math.floor((left + right)/2);
-
+console.log({mid})
         if (check(mid)) {
             right = mid - 1;
         } else {
@@ -31,6 +31,13 @@ var minSpeedOnTime = function(dist, hour) {
             time += distance/k;
         }
 
+        console.log({
+            time,
+            hour
+        })
+
         return time <= hour;
     }
 };
+
+console.log(minSpeedOnTime([1,3,2], 6))

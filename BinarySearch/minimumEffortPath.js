@@ -11,7 +11,12 @@ var minimumEffortPath = function(heights) {
 
     while (left <= right) {
         const mid = Math.floor((left + right)/2);
-
+        console.log({
+            left,
+            right,
+            mid,
+            val: check(mid)
+        })
         if (check(mid)) {
             right = mid - 1;
         } else {
@@ -60,3 +65,5 @@ var minimumEffortPath = function(heights) {
             column >= 0 && column < numColumns;
     }
 }
+
+console.log(minimumEffortPath([[1,2,2],[3,8,2],[5,3,5]]));

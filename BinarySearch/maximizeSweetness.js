@@ -8,6 +8,13 @@ var maximizeSweetness = function(sweetness, k) {
         let currentSweetness = 0;
         let peopleWithChocolate = 0;
 
+        console.log({
+            left,
+            right,
+            mid,
+            sum: Math.floor(sweetness.reduce((sum,sweet) => sum + sweet, 0))
+        })
+
         for (const sweet of sweetness) {
             currentSweetness += sweet;
 
