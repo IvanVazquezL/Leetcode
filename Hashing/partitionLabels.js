@@ -1,11 +1,7 @@
 var partitionLabels = function(s) {
     const map = new Map();
-    for (let i = 0; i < s.length; i++) {
-        if (!map.has(s[i])) {
-            map.set(s[i], [i,i]);
-        } else {
-         map.get(s[i])[1] = i;   
-        }
+    for (let i = 0; i < s.length; i++) {        
+        map.set(s[i], i);   
     }
         
     let limit = -1;
@@ -13,7 +9,7 @@ var partitionLabels = function(s) {
     const answer = [];
     
     for (let i = 0; i < s.length; i++) {
-        limit = Math.max(limit, map.get(s[i])[1]);
+        limit = Math.max(limit, map.get(s[i]));
         
         if (i === limit) {
             answer.push((i + 1) - pastLimit); 
