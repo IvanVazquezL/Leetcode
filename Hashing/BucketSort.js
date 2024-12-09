@@ -1,3 +1,8 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
 var topKFrequent = function(nums, k) {
     const map = new Map();
 
@@ -7,20 +12,16 @@ var topKFrequent = function(nums, k) {
 
     const buckets = [[]];
 
-    for (const [num, frequency] of map.entries()) {
-        buckets[frequency] = [];
-        buckets[frequency].push(num);
+    for (const [number, frequency] of map.entries()) {
+        if (!buckets[frequency]) buckets[frequency] = []
+        buckets[frequency].push(number);
     }
 
-    const result = [];
+    const results = [];
 
-    for (let i = buckets.length; i >= 0; i--) {
-        if (buckets[i]?.length > 0) {
-            result.push(...buckets[i]);
-        }
+    for (let i = buckets.length - 1; i >= 0; i--) {
+        if (buckets[i]?.length > 0) results.push(...buckets[i]);
     }
 
-    return result.slice(0, k);
+    return results.slice(0, k);
 };
-
-console.log(topKFrequent([1,1,1,1,2,2,3], 2));
